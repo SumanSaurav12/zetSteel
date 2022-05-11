@@ -4,17 +4,13 @@ export const suppliers = [
     name: '20 Microns',
     type: 'Product',
     location: 'Bangalore',
-    item: [
+    items: [
       {
         id: 'item1',
         price: 3434
       },
       {
         id: 'item2',
-        price: 3434
-      },
-      {
-        id: 'item3',
         price: 3434
       },
       {
@@ -28,7 +24,7 @@ export const suppliers = [
     name: 'A Gopal Reddy',
     type: 'Product',
     location: 'Chennai',
-    item: [
+    items: [
       {
         id: 'item1',
         price: 342
@@ -52,7 +48,7 @@ export const suppliers = [
     name: 'A  S Logistic',
     type: 'Transport',
     location: 'Chennai',
-    item: [
+    items: [
       {
         id: 'item1',
         price: 3424
@@ -72,7 +68,7 @@ export const suppliers = [
     name: 'Barakath Engineering Inds. P Ltd',
     type: 'Transport',
     location: 'Bangalore',
-    item: [
+    items: [
       {
         id: 'item1',
         price: 342

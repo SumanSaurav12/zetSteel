@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: 'supplier', component: SupplierComponent },
   { path: 'supplier/transport', component: TransportSupplierComponent },
   { path: 'supplier/product', component: ProductSupplierComponent },
-  { path: 'home', component: HomePageComponent },
-  { path: 'category/:id', component: ProductListingComponent }
+  { path: 'customer/home', component: HomePageComponent },
+  { path: 'customer/category/:id', component: ProductListingComponent }
 ];
 
 @NgModule({

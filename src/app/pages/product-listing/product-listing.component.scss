@@ -1,0 +1,24 @@
+.product-listing {
+  display: flex;
+  // align-items: center;
+}
+
+.trends_button {
+  display: flex;
+  align-items: center;
+}
+
+.filters {
+  min-height: 400px;
+  min-width: 250px;
+  background-color: #fff;
+  margin: 10px 22px 10px 10px;
+}
+
+.filter {
+  &-container {
+    padding: 8px;
+  }
+
+  &-heading {}
+}

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { enquiries } from 'src/app/model/enquiry';
 import { customers } from 'src/app/model/customer';
 import { items } from 'src/app/model/item';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmationPopupComponent } from '../confirmation-popup/confirmation-popup.component';
 import { HttpService } from 'src/app/services/http.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -12,12 +12,15 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class SalesComponent implements OnInit {
 
-  enquiryData = enquiries;
+  enquiryData: any = [];
   listData:any = [];
   constructor(private modalService: BsModalService, private http: HttpService) { }
 
   ngOnInit(): void {
-    for (const enquiry of enquiries) {
+    this.enquiryData = JSON.parse(localStorage.getItem('customerEnquiryList') || '') || [];
+    // console.log(enquiryData);
+
+    for (const enquiry of this.enquiryData) {
       let item = items.find(item => item.id === enquiry.itemId);
       let customer = customers.find(customer => customer.id === enquiry.customerId);
       let obj = {

@@ -1,1 +1,45 @@
- 
+<div class="trends">
+  <h4 *ngElse="items.length > 0" style="margin-left:100px;">Total product found : {{ items.length }}</h4>
+  <h4 style="margin-left:100px;" *ngIf="items.length == 0 ">Sorry! No product found</h4>
+  <div class="trends_background" style="background-image:url(images/trends_background.jpg)"></div>
+  <div class="trends_overlay"></div>
+  <div class="container">
+    <section class="product-listing">
+      <!-- Filters -->
+      <section class="filters">
+        <div *ngFor="let filter of filters.facets">
+          <div class="filter-container">
+            <h3 class="filter-heading">{{  filter.name }}</h3>
+            <ul>
+              <li *ngFor="let facet of filter.data" class="">
+                <input (change)="filterChange(filter?.parameter, facet, $event)" type="checkbox">
+                <label class="filter-name">{{ facet.label }}</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+       <!-- Products -->
+      <section class="row">
+        <div style="width:300px;min-height:300px;" *ngFor="let item of items" class="trends_item is_new">
+            <!-- <router-link v-bind:to="'/product/'+product.pId"> -->
+            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img  width="200" height="200" [src]='item.imageUrl' alt=""></div>	
+            <div class="trends_content">
+              <div class="trends_category"><a href="#">{{ item.category }}</a></div>
+              <div class="trends_info clearfix">
+                <div class="trends_name">{{ item.name }}</div>
+                <div class="trends_price">₹ {{ item.minPrice }} - {{ item.maxPrice }}</div>
+              </div>
+              <div class="trends_info clearfix">Suppliers {{ item?.suppliers.length }}</div>
+            </div>
+            <div class="trends_button">
+              <input type="text" (change)="updateQuantity(item, $event)" placeholder="Please enter quantity">
+              <button type="button" (click)="onSubmitEnquiry(item)" class="btn btn-sm btn-primary">Submit Enquiry</button>
+            </div>
+            <div class="trends_fav"><i class="fas fa-heart"></i></div>
+          <!-- </router-link> -->
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
