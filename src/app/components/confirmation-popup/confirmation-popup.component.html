@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+</div>
+<div class="modal-body confirm-modal">
+  <div class="row">
+    <div class="col-12">
+      <div class="message" [innerHTML]="message"></div>
+    </div>
+  </div>
+  <div class="row mt-4 confirm-body">
+    <div>
+      <button type="button" class="btn full-button cancel-btn" (click)="clickCancel()">
+        {{cancelButton}}
+      </button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary buttons float-right mr-2 zetwerk-blue-button" (click)="clickOk()">
+        {{confirmationButton}}
+      </button>
+    </div>
+  </div>
+
+</div>

@@ -1,5 +1,6 @@
 export const supplier = [
   {
+    id: 'supplier1',
     name: '20 Microns',
     item: [
       {
@@ -21,6 +22,7 @@ export const supplier = [
     ]
   },
   {
+    id: 'supplier2',
     name: 'A Gopal Reddy',
     item: [
       {
@@ -42,6 +44,7 @@ export const supplier = [
     ]
   },
   {
+    id: 'supplier3',
     name: 'A Gopal Reddy',
     item: [
       {

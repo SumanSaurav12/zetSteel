@@ -1,0 +1,31 @@
+.confirm-modal {
+  padding: 30px 40px;
+
+  .confirm-body {
+    justify-content: flex-end;
+
+    .cancel-btn {
+      color: #0079c9;
+      margin-right: 16px;
+    }
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
+// .modal-dialog {
+  .modal-header {
+    border-bottom-width: 0px;
+    padding: 30px 30px 0px 30px;
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+
+  .modal-body {
+    padding: 30px 40px;
+  }
+// }

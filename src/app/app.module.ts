@@ -10,7 +10,12 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { SupplierComponent } from './components/supplier/supplier.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { SalesComponent } from './components/sales/sales.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +24,19 @@ import { AppComponent } from './app.component';
     HomePageComponent,
     ProductItemComponent,
     ProductListingComponent,
-    NavbarComponent
+    NavbarComponent,
+    SalesComponent,
+    SupplierComponent,
+    CustomerComponent,
+    WelcomeComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

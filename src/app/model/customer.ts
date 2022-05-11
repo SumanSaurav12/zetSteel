@@ -1,14 +1,14 @@
 export const customers = [
   {
-    id: '345',
+    id: 'customer1',
     name: 'SHREEHARI ASSOCIATES PRIVATE LIMITED',
     email: 'shreehari@gmail.com',
-    phoneNumber: 123456
+    phoneNumber: '123456'
   },
   {
-    id: '123',
+    id: 'customer2',
     name: 'A E AUTOMOTION PRIVATE LIMITED',
     email: 'aeautomation@gmail.com',
-    phoneNumber: 123456
+    phoneNumber: '7896473'
   }
 ];

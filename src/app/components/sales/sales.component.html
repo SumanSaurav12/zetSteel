@@ -1,16 +1,26 @@
-<div class="enquiry-list">
-  <div class="enquiry-grid">
-    <div>Product name</div>
-    <div>Quantity</div>
-    <div>Product name</div>
-    <div>Location</div>
-    <div>Customer</div>
+<div class="enquiry-list-container">
+  <div class="header">
+    <div class="large-text">Enquiry List</div>
+    <button type="button" class="send-enquiry-btn" (click)="sendEnquiryToSupplier()">Send Enquiries To Supplier</button>
   </div>
-  <div class="enquiry-grid">
+  <div class="table-header">
     <div></div>
-    <div>Quantity</div>
     <div>Product name</div>
+    <div>Quantity</div>
     <div>Location</div>
     <div>Customer</div>
+    <div>Status</div>
+  </div>
+  <div class="table-body" *ngFor="let enquiry of listData">
+    <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted" (change)="selectItem(enquiry.id, $event)" /></div>
+    <div class="normal-text">{{ enquiry?.itemName }}</div>
+    <div class="normal-text">{{ enquiry?.quantity }}</div>
+    <div class="normal-text">{{ enquiry?.location }}</div>
+    <div>
+      <div class="normal-text">{{ enquiry?.customerName }}</div>
+      <div class="small-text">{{ enquiry?.email }}</div>
+      <div class="small-text">{{ enquiry?.phoneNumber }}</div>
+    </div>
+    <div class="normal-text">{{ enquiry?.status }}</div>
   </div>
 </div>
