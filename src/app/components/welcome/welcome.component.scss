@@ -1,0 +1,29 @@
+.welcome-page {
+  .title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .card {
+    cursor: pointer;
+    text-align: center;
+    height: 500px;
+    width: 400px
+  }
+  .customer-card {
+    @extend .card;
+    margin-right: 20px;
+    background-color: aquamarine;
+  }
+
+  .sales-card {
+    @extend .card;
+    margin-right: 20px;
+    background-color: yellow;
+  }
+
+  .supplier-card {
+    @extend .card;
+    background-color: salmon;
+  }
+}
