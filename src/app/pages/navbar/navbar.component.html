@@ -95,10 +95,9 @@
                 <li>Steel</li>
               </ul>
 
-              <!--TODO Category-->
-              <!-- <ul class="cat_menu">
-                <li v-for="category in categories" :key="category.id"><router-link v-bind:to="'/category/'+category.name">{{ category.name }}<i class="fas fa-chevron-right"></i></router-link></li>
-              </ul> -->
+              <ul class="cat_menu">
+                <li *ngFor="let category of categories" ><a [routerLink]="['/category', category.id]">{{ category.name }}<i class="fas fa-chevron-right"></i></a></li>
+              </ul>
             </div>
             <!-- Main Nav Menu --> 
             <div class="main_nav_menu ml-auto">
