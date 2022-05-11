@@ -1,4 +1,4 @@
-export const supplier = [
+export const suppliers = [
   {
     id: 'supplier1',
     name: '20 Microns',

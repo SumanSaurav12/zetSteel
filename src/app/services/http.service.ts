@@ -22,12 +22,21 @@ export class HttpService {
     return result ? JSON.parse(result) : [];
   }
 
-  public setSupplierRespList(list: []) {
-     localStorage.setItem('supplierRespList', JSON.stringify(list));
+  public setProductSupplierRespList(list: []) {
+     localStorage.setItem('productSupplierRespList', JSON.stringify(list));
   }
 
-  public getSupplierRespList() {
-    let result = localStorage.getItem('supplierRespList') || null;
+  public getProductSupplierRespList() {
+    let result = localStorage.getItem('productSupplierRespList') || null;
+    return result ? JSON.parse(result) : [];
+  }
+
+  public setTransportSupplierRespList(list: []) {
+     localStorage.setItem('transportSupplierRespList', JSON.stringify(list));
+  }
+
+  public getTransportSupplierRespList() {
+    let result = localStorage.getItem('transportSupplierRespList') || null;
     return result ? JSON.parse(result) : [];
   }
 }

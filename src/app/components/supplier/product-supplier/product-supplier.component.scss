@@ -1,5 +1,12 @@
 .enquiry-list-container {
-
+  .team-name {
+    padding: 10px;
+    text-align: center;
+  }
+  .checkbox {
+    text-align: center;
+    cursor: pointer;
+  }
   .header {
     padding: 20px;
     display: flex;
@@ -38,7 +45,7 @@
 
   .enquiry-grid {
     display: grid;
-    grid-template-columns: 5% 22% 19% 14% 23% 5%;
+    grid-template-columns: 15% 22% 19% 23% 5%;
     grid-column-gap: 10px;
   }
 

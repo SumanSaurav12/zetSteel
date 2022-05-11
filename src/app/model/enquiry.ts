@@ -11,7 +11,7 @@ export const enquiries = [
     //   email: '',
     //   phoneNumber: ''
     // },
-    supplierIds: ['supplier1'],
+    supplierIds: ['supplier1', 'supplier2','supplier3'],
     status: 'OPEN',
     createdAt: '',
   },
@@ -38,7 +38,7 @@ export const enquiries = [
     quantity: 40,
     location: 'Bangalore',
     customerId: '123',
-    supplierIds: ['supplier2'],
+    supplierIds: ['supplier1'],
     // customerData: {
     //   customerName: '',
     //   email: '',
