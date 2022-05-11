@@ -2,6 +2,8 @@ export const supplier = [
   {
     id: 'supplier1',
     name: '20 Microns',
+    type: 'Product',
+    location: 'Bangalore',
     item: [
       {
         id: 'item1',
@@ -24,6 +26,8 @@ export const supplier = [
   {
     id: 'supplier2',
     name: 'A Gopal Reddy',
+    type: 'Product',
+    location: 'Chennai',
     item: [
       {
         id: 'item1',
@@ -45,7 +49,9 @@ export const supplier = [
   },
   {
     id: 'supplier3',
-    name: 'A Gopal Reddy',
+    name: 'A  S Logistic',
+    type: 'Transport',
+    location: 'Chennai',
     item: [
       {
         id: 'item1',
@@ -60,5 +66,29 @@ export const supplier = [
         price: 786
       }
     ]
-  }
+  },
+  {
+    id: 'supplier4',
+    name: 'Barakath Engineering Inds. P Ltd',
+    type: 'Transport',
+    location: 'Bangalore',
+    item: [
+      {
+        id: 'item1',
+        price: 342
+      },
+      {
+        id: 'item2',
+        price: 567
+      },
+      {
+        id: 'item3',
+        price: 564
+      },
+      {
+        id: 'item4',
+        price: 786
+      }
+    ]
+  },
 ];

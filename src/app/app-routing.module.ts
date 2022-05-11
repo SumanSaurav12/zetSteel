@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { ProductSupplierComponent } from './components/supplier/product-supplier/product-supplier.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
+import { TransportSupplierComponent } from './components/supplier/transport-supplier/transport-supplier.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HomePageComponent } from './pages/homePage/home-page.component';
 import { ProductListingComponent } from './pages/product-listing/product-listing.component';
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'supplier', component: SupplierComponent },
+  { path: 'supplier/transport', component: TransportSupplierComponent },
+  { path: 'supplier/product', component: ProductSupplierComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'category/:id', component: ProductListingComponent }
 ];

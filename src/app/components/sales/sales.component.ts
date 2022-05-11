@@ -4,6 +4,7 @@ import { customers } from 'src/app/model/customer';
 import { items } from 'src/app/model/item';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ConfirmationPopupComponent } from '../confirmation-popup/confirmation-popup.component';
+import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -13,7 +14,7 @@ export class SalesComponent implements OnInit {
 
   enquiryData = enquiries;
   listData:any = [];
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private http: HttpService) { }
 
   ngOnInit(): void {
     for (const enquiry of enquiries) {
@@ -39,14 +40,14 @@ export class SalesComponent implements OnInit {
     this.listData.map((enquiry: any) => {
       if(enquiry.id === enquiryId) {
         console.log('khsdgchjkgs')
-        enquiry['isSelected'] = event.target.checked;
+        enquiry['isSelectedBySales'] = event.target.checked;
       }
     });
     console.log('this.listData', this.listData);
   }
 
   sendEnquiryToSupplier() {
-    localStorage.setItem('enquiryList', JSON.stringify(this.listData));
+    this.http.setSalesEnquiryList(this.listData);
     // const confirmationData = {
     //   title: 'Delete Bill',
     //   message: 'Are you sure you want to delete the bill?',

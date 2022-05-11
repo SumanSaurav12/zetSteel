@@ -16,6 +16,8 @@ import { SalesComponent } from './components/sales/sales.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { TransportSupplierComponent } from './components/supplier/transport-supplier/transport-supplier.component';
+import { ProductSupplierComponent } from './components/supplier/product-supplier/product-supplier.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
     SupplierComponent,
     CustomerComponent,
     WelcomeComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    TransportSupplierComponent,
+    ProductSupplierComponent
   ],
   imports: [
     BrowserModule,

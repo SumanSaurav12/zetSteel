@@ -3,7 +3,7 @@ export const enquiries = [
     id: 'enquiry1',
     itemId: 'item1',
     itemName: '',
-    quantity: 0,
+    quantity: 100,
     location: 'Bangalore',
     customerId: '345',
     // customerData: {
@@ -11,7 +11,7 @@ export const enquiries = [
     //   email: '',
     //   phoneNumber: ''
     // },
-    supplierIds: [],
+    supplierIds: ['supplier1'],
     status: 'OPEN',
     createdAt: '',
   },
@@ -19,10 +19,10 @@ export const enquiries = [
     id: 'enquiry2',
     itemId: 'item2',
     itemName: '',
-    quantity: 0,
+    quantity: 20,
     location: 'Bangalore',
     customerId: '345',
-    supplierIds: [],
+    supplierIds: ['supplier1'],
     // customerData: {
     //   customerName: '',
     //   email: '',
@@ -35,10 +35,10 @@ export const enquiries = [
     id: 'enquiry3',
     itemId: 'item1',
     itemName: '',
-    quantity: 0,
+    quantity: 40,
     location: 'Bangalore',
     customerId: '123',
-    supplierIds: [],
+    supplierIds: ['supplier2'],
     // customerData: {
     //   customerName: '',
     //   email: '',

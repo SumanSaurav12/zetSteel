@@ -1,29 +1,37 @@
 .welcome-page {
+  padding: 30px;
   .title {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
   .card {
     cursor: pointer;
     text-align: center;
-    height: 500px;
-    width: 400px
+    height: 300px;
+    width: 300px
   }
-  .customer-card {
-    @extend .card;
-    margin-right: 20px;
-    background-color: aquamarine;
-  }
+  .cards {
+    display: flex;
+    justify-content: space-around;
 
-  .sales-card {
-    @extend .card;
-    margin-right: 20px;
-    background-color: yellow;
-  }
+    .customer-card {
+      @extend .card;
+      margin-right: 20px;
+      background-color: aquamarine;
+    }
 
-  .supplier-card {
-    @extend .card;
-    background-color: salmon;
+    .sales-card {
+      @extend .card;
+      margin-right: 20px;
+      background-color: yellow;
+    }
+
+    .supplier-card {
+      @extend .card;
+      background-color: salmon;
+    }
   }
+  
 }
