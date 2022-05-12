@@ -19,9 +19,9 @@
         (change)="setIsSelectedByTransportSupplier(enquiry?.id, $event)" />
     </div>
     <div class="normal-text">{{ enquiry?.itemName }}</div>
-    <div class="normal-text">{{ enquiry?.quantity }}</div>
+    <div class="normal-text">{{ enquiry?.quantity }} MT</div>
     <div class="normal-text">{{ enquiry?.fromLocation }}</div>
     <div class="normal-text">{{ enquiry?.location }}</div>
-    <div><input type="number" id="transportPrice" (change)="setTransportPrice(enquiry?.id, enquiry.productSupplierId,$event)" /></div>
+    <div><input type="number" placeholder="Enter final amount" id="transportPrice" (change)="setTransportPrice(enquiry?.id, enquiry.productSupplierId,$event)" /></div>
   </div>
 </div>

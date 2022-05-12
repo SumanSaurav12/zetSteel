@@ -27,6 +27,7 @@ export class CustomerOrdersComponent implements OnInit {
   getAllEnquiries() {
     this.http.getOrdersForACustomer(this.customerId).subscribe((res : any) => {
       console.log('res', res)
+      console.log(Object.keys(res));
       this.customerOrderList = Object.values(res);
       console.log('this.customerOrderList', this.customerOrderList);
     });
