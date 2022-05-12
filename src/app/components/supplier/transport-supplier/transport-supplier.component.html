@@ -1,12 +1,11 @@
 <div class="supplier-page">
   <div class="team-name large-text">ZET-STEEL</div>
-  <div class="header">
-    <div class="large-text">Transport Supplier Portal</div>
-    <div>
-      <button type="button" class="send-enquiry-btn" (click)="sendResponseToSales()">Send Response To Sales</button>
-      <div *ngIf="hasError" class="error">Please select enquiry to proceed</div>
-    </div>
+  <div class="header large-text">Transport Supplier Portal</div>
+  <div class="resp-btn">
+    <button type="button" class="send-enquiry-btn" (click)="sendResponseToSales()">Send Response To Sales</button>
+    <div *ngIf="hasError" class="error">Please select enquiry to proceed</div>
   </div>
+
   <div class="table-header">
     <div></div>
     <div>Product name</div>
@@ -16,7 +15,7 @@
     <div>Price</div>
   </div>
   <div class="table-body" *ngFor="let enquiry of filteredEnquiryForSupplier">
-    <div><input type="checkbox" id="isSelectedByTransportSupplier"
+    <div class="checkbox"><input type="checkbox" id="isSelectedByTransportSupplier"
         (change)="setIsSelectedByTransportSupplier(enquiry?.id, $event)" />
     </div>
     <div class="normal-text">{{ enquiry?.itemName }}</div>

@@ -1,26 +1,39 @@
 <div class="enquiry-list-container">
-  <div class="header">
-    <div class="large-text">Enquiry List</div>
-    <button type="button" class="send-enquiry-btn" (click)="sendEnquiryToSupplier()">Send Enquiries To Supplier</button>
+  <div class="title large-text">Sales Team Portal</div>
+  <div class="tabs">
+    <div [class.selected]="selectedTab === 'enquiry'" (click)="setTab('enquiry')">Enquiry List</div>
+    <div [class.selected]="selectedTab === 'quotation'" (click)="setTab('quotation')">Quotation List</div>
   </div>
-  <div class="table-header">
-    <div></div>
-    <div>Product name</div>
-    <div>Quantity</div>
-    <div>Location</div>
-    <div>Customer</div>
-    <div>Status</div>
-  </div>
-  <div class="table-body" *ngFor="let enquiry of listData">
-    <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted" (change)="selectItem(enquiry.id, $event)" /></div>
-    <div class="normal-text">{{ enquiry?.itemName }}</div>
-    <div class="normal-text">{{ enquiry?.quantity }}</div>
-    <div class="normal-text">{{ enquiry?.location }}</div>
-    <div>
-      <div class="normal-text">{{ enquiry?.customerName }}</div>
-      <div class="small-text">{{ enquiry?.email }}</div>
-      <div class="small-text">{{ enquiry?.phoneNumber }}</div>
+  <div *ngIf="selectedTab === 'enquiry'">
+    <div class="header">
+      <button type="button" class="send-enquiry-btn" (click)="sendEnquiryToSupplier()">Send Enquiries To
+        Supplier</button>
     </div>
-    <div class="normal-text">{{ enquiry?.status }}</div>
+    <div class="table-header">
+      <div></div>
+      <div>Product name</div>
+      <div>Quantity</div>
+      <div>Location</div>
+      <div>Customer</div>
+      <div>Status</div>
+    </div>
+    <div class="table-body" *ngFor="let enquiry of listData">
+      <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted" (change)="selectItem(enquiry.id, $event)" />
+      </div>
+      <div class="normal-text">{{ enquiry?.itemName }}</div>
+      <div class="normal-text">{{ enquiry?.quantity }}</div>
+      <div class="normal-text">{{ enquiry?.location }}</div>
+      <div>
+        <div class="normal-text">{{ enquiry?.customerName }}</div>
+        <div class="small-text">{{ enquiry?.email }}</div>
+        <div class="small-text">{{ enquiry?.phoneNumber }}</div>
+      </div>
+      <div class="normal-text">{{ enquiry?.status }}</div>
+    </div>
+  </div>
+  <div *ngIf="selectedTab === 'quotation'">
+    <div class="header">
+      <button type="button" class="send-enquiry-btn" (click)="approveAllQuotations()">Approve Selected Quotations</button>
+    </div>
   </div>
 </div>

@@ -1,9 +1,30 @@
 .enquiry-list-container {
-
+  .tabs {
+    display: flex;
+    
+    >div {
+      border: 1px solid black;
+      width: 50%;
+      text-align: center;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .selected {
+      background: #0075E3;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
+      color: #FFFFFF;
+      border: 1px solid transparent;
+    }
+  }
+  .title {
+    padding: 20px;
+    text-align: center;
+  }
   .header {
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
+    text-align: end;
     .send-enquiry-btn {
       :not(:disabled):not(.disabled) {
         cursor: pointer;
@@ -17,6 +38,7 @@
       border-radius: 3px;
       color: #FFFFFF;
       border: 1px solid transparent;
+      cursor: pointer;
     }
   }
   .large-text {

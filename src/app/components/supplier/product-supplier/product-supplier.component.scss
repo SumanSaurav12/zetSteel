@@ -9,23 +9,26 @@
   }
   .header {
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-
-    .send-enquiry-btn {
-      :not(:disabled):not(.disabled) {
-        cursor: pointer;
-      }
-
-      font-weight: 400;
-      font-size: 12px;
-      padding: 4px 8px;
-      background: #0075E3;
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
-      border-radius: 3px;
-      color: #FFFFFF;
-      border: 1px solid transparent;
+    text-align: center;
+  }
+  .resp-btn {
+    padding: 20px 40px;
+    text-align: end;
+  }
+  .send-enquiry-btn {
+    text-align: end;
+    :not(:disabled):not(.disabled) {
+      cursor: pointer;
     }
+
+    font-weight: 400;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #0075E3;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
+    border-radius: 3px;
+    color: #FFFFFF;
+    border: 1px solid transparent;
   }
 
   .large-text {

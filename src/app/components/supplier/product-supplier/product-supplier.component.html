@@ -1,11 +1,9 @@
 <div class="enquiry-list-container">
   <div class="team-name large-text">ZET-STEEL</div>
-  <div class="header">
-    <div class="large-text">Product Supplier Portal</div>
-    <div>
-      <button type="button" class="send-enquiry-btn" (click)="sendResponseToSales()">Send Response To Sales</button>
-      <div *ngIf="hasError" class="error">Please select enquiry to proceed</div>
-    </div>
+  <div class="header large-text">Product Supplier Portal</div>
+  <div class="resp-btn">
+    <button type="button" class="send-enquiry-btn" (click)="sendResponseToSales()">Send Response To Sales</button>
+    <div *ngIf="hasError" class="error">Please select enquiry to proceed</div>
   </div>
   <div class="table-header">
     <div></div>

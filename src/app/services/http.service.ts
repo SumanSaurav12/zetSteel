@@ -3,17 +3,30 @@ import { category } from "../model/category";
 import { items } from "../model/item";
 import { suppliers } from "../model/supplier";
 import { filters } from "../model/filters";
+import {
+  HttpClient,
+  HttpResponse
+} from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
 
-
+  constructor(private http: HttpClient){};
   appliedFilters: any = {};
 
   items: any = [];
 
   getCategory() {
     return category;
+  }
+
+  // public getQuotationsForCustomer(customerId) {
+  //   this.http.get()
+  // }
+
+  public postQuotations(body: any) {
+    console.log(body);
+    return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/quotation.json', body);
   }
 
   public setSalesEnquiryList(list: []) {
