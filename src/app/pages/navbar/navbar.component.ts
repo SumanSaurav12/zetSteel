@@ -20,10 +20,17 @@ export class NavbarComponent implements OnInit {
 
   location: string = 'Bangalore';
 
+  selectedTab = 'categories';
+
   constructor(private http: HttpService, private toastr: ToastrService) {}
 
   ngOnInit () {
     this.categories = this.http.getCategory();
+  }
+
+  setTab(tab: any) {
+    console.log('tab', tab)
+    this.selectedTab = tab;
   }
 
   onCategoryChange(category: any) {
