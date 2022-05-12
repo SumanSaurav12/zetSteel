@@ -35,6 +35,11 @@ export class HttpService {
     return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/order.json', body);
   }
 
+  public getOrdersForACustomer(body: any) {
+    console.log(body);
+    return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/order.json', body);
+  }
+
   public setSalesEnquiryList(list: []) {
     // let oldList = this.getSalesEnquiryList();
     // let newList = [...oldList, ...list];
