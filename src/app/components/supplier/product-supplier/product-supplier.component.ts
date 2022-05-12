@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -9,13 +10,17 @@ import { HttpService } from 'src/app/services/http.service';
 export class ProductSupplierComponent implements OnInit {
 
   filteredEnquiryForSupplier:any = [];
-  supplierId = 'supplier1'
+  supplierId = '';
   hasError = false;
 
-  constructor(private http: HttpService) { }
+  constructor(
+    private http: HttpService, 
+    private _route: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.supplierId = this._route.snapshot.params['id'];
     this.getAllEnquiries();
+    console.log('selected supplier - ', this.supplierId);
   }
 
   getAllEnquiries() {

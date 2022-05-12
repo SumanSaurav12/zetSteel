@@ -8,13 +8,21 @@ import { Router } from '@angular/router';
 })
 export class SupplierComponent implements OnInit {
 
+  supplierId = '';
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  setSupplierId(event: any) {
+    this.supplierId = event.target.value;
+  }
+
   redirectUser(pageToRedirect: any) {
-    this.router.navigate(['supplier', pageToRedirect]);
+    if (this.supplierId) {
+      this.router.navigate(['supplier', this.supplierId , pageToRedirect]);
+    }
   }
 
 }
