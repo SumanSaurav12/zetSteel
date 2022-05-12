@@ -1,29 +1,4 @@
 <header class="header">
-  <!-- Top Bar -->
-  <!-- <div class="top_bar">
-    <div class="container">
-      <div class="row">
-        <div class="col d-flex flex-row">
-          <div class="top_bar_content ml-auto">
-            <div v-if="isLogin==false && this.$session.get('customer_id') == null" class="top_bar_user">
-              <div class="user_icon"><img src="images/user.svg" alt=""></div>
-              <div><router-link href="#" to="/register">Register</router-link></div>
-              <div><router-link href="#" to="/login">Sign in</router-link></div>
-            </div>
-            <div v-if="isLogin==true || this.$session.get('customer_id') != null" class="top_bar_user">
-              <div class="user_icon"><img src="@/assets/images/user.svg" alt=""></div>
-              <div></div>
-              <div><router-link to="/logout">Logout</router-link></div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>		
-  </div> -->
-
-  <!-- Header Main -->
-
   <div style="height:120px;" class="header_main">
     <div class="container">
       <div class="row">
@@ -64,8 +39,7 @@
                   <div class="cart_count"><span>0</span></div>
                 </div>
                 <div class="cart_content">
-                  <div class="cart_text"><a href="'/cart'">Cart</a></div>
-                  <!-- <div class="cart_price">$85</div> -->
+                  <div class="cart_text"><a routerLink="quotes">Quotes</a></div>
                 </div>
               </div>
             </div>
@@ -96,36 +70,11 @@
               </ul>
 
               <ul class="cat_menu">
-                <li *ngFor="let category of categories" ><a [routerLink]="['category', category.id]">{{ category.name }}<i class="fas fa-chevron-right"></i></a></li>
+                <li *ngFor="let category of categories" >
+                  <a (click)="onCategoryChange(category)">{{ category.name }}</a>
+                </li>
               </ul>
             </div>
-            <!-- Main Nav Menu --> 
-            <div class="main_nav_menu ml-auto">
-              <ul class="standard_dropdown main_nav_dropdown">
-                <li><a href="'/order'">Order<i class="fas fa-chevron-down"></i></a></li>
-                <li>
-                          <div v-if="isLogin==false && this.$session.get('customer_id') == null" class="top_bar_user">
-                          <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                          <div><a href="/register">Register</a></div>
-                          <div><a href="/login">Sign in</a></div>
-                        </div>
-                  <div v-if="isLogin==true || this.$session.get('customer_id') != null" class="top_bar_user">
-                          <div><a href="/logout">Logout</a></div>
-                        </div>
-                </li>			
-              </ul>
-            </div>
-            <!-- Menu Trigger -->
-
-            <div class="menu_trigger_container ml-auto">
-              <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
-                <div class="menu_burger">
-                  <div class="menu_trigger_text">menu</div>
-                  <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
@@ -133,3 +82,48 @@
   </nav>
   
 </header>
+
+<!--Product listing-->
+<div class="trends">
+  <h4 *ngIf="items.length > 0" style="margin-left:100px;">Total product found : {{ items.length }}</h4>
+  <h4 style="margin-left:100px;" *ngIf="items.length == 0 ">Sorry! No product found</h4>
+  <div class="trends_background" style="background-image:url(images/trends_background.jpg)"></div>
+  <div class="trends_overlay"></div>
+  <section *ngIf="items.length > 0" class="product-listing">
+    <!-- Filters -->
+    <section class="filters">
+      <div *ngFor="let filter of filters.facets">
+        <div class="filter-container">
+          <h3 class="filter-heading">{{  filter.name }}</h3>
+          <ul>
+            <li *ngFor="let facet of filter.data" class="filter-item">
+              <input (change)="filterChange(filter?.parameter, facet, $event)" type="checkbox">
+              <label class="filter-item-label">{{ facet.label }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+      <!-- Products -->
+    <section class="row">
+      <div style="width:300px;min-height:300px;" *ngFor="let item of items" class="trends_item is_new product-card">
+          <!-- <router-link v-bind:to="'/product/'+product.pId"> -->
+          <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img  width="200" height="200" [src]='item.imageUrl' alt=""></div>	
+          <div class="trends_content">
+            <div class="trends_category"><a href="#">{{ item.category }}</a></div>
+            <div class="trends_info clearfix">
+              <div class="trends_name">{{ item.name }}</div>
+              <div class="trends_price">₹ {{ item.minPrice }} - {{ item.maxPrice }}</div>
+            </div>
+            <div class="trends_info clearfix">Suppliers {{ item?.suppliers.length }}</div>
+          </div>
+          <div class="trends_button">
+            <input type="text" (change)="updateQuantity(item, $event)" placeholder="Please enter quantity">
+            <button type="button" (click)="onSubmitEnquiry(item)" class="btn btn-sm btn-primary">Submit Enquiry</button>
+          </div>
+          <div class="trends_fav"><i class="fas fa-heart"></i></div>
+        <!-- </router-link> -->
+      </div>
+    </section>
+  </section>
+</div>

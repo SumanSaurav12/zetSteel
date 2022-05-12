@@ -3,7 +3,7 @@ export const filters = [
     id: 'TMT-BAR',
     facets: [
       {
-        name: 'grade',
+        name: 'Grade',
         parameter: 'grade',
         data: [
           {
@@ -29,7 +29,7 @@ export const filters = [
         ]
       },
       {
-        name: 'size',
+        name: 'Size',
         parameter: 'size',
         data: [
           {

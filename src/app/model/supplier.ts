@@ -16,7 +16,11 @@ export const suppliers = [
       {
         id: 'item4',
         price: 3434
-      }
+      },
+      {
+        id: 'item5',
+        price: 34342
+      },
     ]
   },
   {

@@ -22,7 +22,6 @@
     <div class="normal-text">{{ enquiry?.quantity }}</div>
     <div class="normal-text">{{ enquiry?.fromLocation }}</div>
     <div class="normal-text">{{ enquiry?.location }}</div>
-    <div><input type="number" id="transportPrice" placeholder="Enter Product Transportation Price"
-        (change)="setTransportPrice(enquiry?.id, $event)" /></div>
+    <div><input type="number" id="transportPrice" (change)="setTransportPrice(enquiry?.id, enquiry.productSupplierId,$event)" /></div>
   </div>
 </div>

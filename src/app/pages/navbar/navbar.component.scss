@@ -1,0 +1,44 @@
+.product-listing {
+  display: flex;
+  // align-items: center;
+  margin-left: 100px;
+}
+
+.trends_button {
+  display: flex;
+  align-items: center;
+}
+
+.filters {
+  min-height: 400px;
+  min-width: 250px;
+  background-color: #fff;
+  margin: 10px 22px 10px 10px;
+
+  border-radius: 8px;
+  box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
+}
+
+.filter {
+  &-container {
+    padding: 16px;
+  }
+
+  &-heading {
+    font-size: 16px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    margin: 2px 0px;
+    &-label {
+      margin-bottom: 0px;
+      margin-left: 16px;
+    }
+  }
+}
+
+.product-card {
+  box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
+}

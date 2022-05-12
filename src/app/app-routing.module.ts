@@ -9,6 +9,7 @@ import { TransportSupplierComponent } from './components/supplier/transport-supp
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HomePageComponent } from './pages/homePage/home-page.component';
 import { ProductListingComponent } from './pages/product-listing/product-listing.component';
+import { QuotesComponent } from './pages/quotes/quotes.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'supplier/:id/transport', component: TransportSupplierComponent },
   { path: 'supplier/:id/product', component: ProductSupplierComponent },
   { path: 'customer/home', component: HomePageComponent },
-  { path: 'customer/category/:id', component: ProductListingComponent }
+  { path: 'customer/category/:id', component: ProductListingComponent },
+  { path: 'customer/quotes', component: QuotesComponent }
 ];
 
 @NgModule({

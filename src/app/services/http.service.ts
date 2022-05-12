@@ -11,7 +11,8 @@ import {
 @Injectable({ providedIn: 'root' })
 export class HttpService {
 
-  constructor(private http: HttpClient){};
+  // constructor(private http: HttpClient){};
+
   appliedFilters: any = {};
 
   items: any = [];
@@ -26,7 +27,7 @@ export class HttpService {
 
   public postQuotations(body: any) {
     console.log(body);
-    return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/quotation.json', body);
+    // return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/quotation.json', body);
   }
 
   public setSalesEnquiryList(list: []) {
@@ -90,6 +91,7 @@ export class HttpService {
       minPrice = Number.MAX_VALUE;
 
       const prodSuppliers = suppliers.filter((supplier: any) => supplier.type === 'Product');
+      const tansportSuppliers = suppliers.filter((supplier: any) => supplier.type === 'Transport');
       const supplier = prodSuppliers.filter((supplier: any) => { 
       const supplierItem = supplier.items.find((item: any )=> item.id === itemByCategory.id); 
         
@@ -106,7 +108,8 @@ export class HttpService {
         return false;
       });
 
-      itemByCategory.suppliers = supplier;
+      itemByCategory.suppliers = [...supplier];
+      itemByCategory.tansportSuppliers = [...tansportSuppliers];
       itemByCategory.minPrice = minPrice;
       itemByCategory.maxPrice = maxPrice;
       
