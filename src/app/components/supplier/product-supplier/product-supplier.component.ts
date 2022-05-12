@@ -82,10 +82,10 @@ export class ProductSupplierComponent implements OnInit {
     });
   }
 
-  setPrice(enquiryId: any, event: any) {
+  setPrice(enquiryId: any, itemId: any, event: any) {
     console.log(event);
     this.filteredEnquiryForSupplier.map((enquiry: any) => {
-      if(enquiry.id === enquiryId) {
+      if(enquiry.id === enquiryId && enquiry.itemId === itemId) {
         enquiry['productPrice'] = event.target.value;
       }
     });

@@ -11,6 +11,8 @@ import { HttpService } from "src/app/services/http.service";
 export class QuotesComponent implements OnInit {
   modalRef?: BsModalRef;
 
+  categories: any;
+
   isCreditAvail: boolean = false;
 
   isInsuranceAvail: boolean = false;
@@ -24,6 +26,10 @@ export class QuotesComponent implements OnInit {
   constructor(private modalService: BsModalService, private http: HttpService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
+
+    //TODO move to common component
+    this.categories = this.http.getCategory();
+
     //TODO Move it to the service
     const customerQuotationList = localStorage.getItem('finalQuotationList');
     if (customerQuotationList !== null) {
@@ -71,5 +77,8 @@ export class QuotesComponent implements OnInit {
     this.toastr.success('Order has been placed successfully');
     this.modalRef?.hide();
   }
+
+  // TODO remove
+  onCategoryChange(category: any) {}
 
 }

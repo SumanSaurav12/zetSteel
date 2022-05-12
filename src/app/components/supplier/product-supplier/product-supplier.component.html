@@ -20,6 +20,6 @@
     <div class="normal-text">{{ enquiry?.quantity }}</div>
     <div><input type="date" id="date" (change)="setDate(enquiry?.id, $event)" /></div>
     <div><input type="number" id="productPrice" placeholder="Enter Unit Price"
-        (change)="setPrice(enquiry?.id, $event)" /></div>
+        (change)="setPrice(enquiry?.id, enquiry.itemId, $event)" /></div>
   </div>
 </div>

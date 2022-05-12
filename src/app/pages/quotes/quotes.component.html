@@ -7,7 +7,7 @@
         <div class="col-lg-2 col-sm-3 col-3 order-1">
           <div class="logo_container">
             <div class="logo">
-              <a href="/">ZetSteel</a>
+              <img src="/assets/svg/logo.svg" alt="no img" />
             </div>
           </div>
         </div>
@@ -69,12 +69,11 @@
                 <li>Steel</li>
               </ul>
 
-              <!--TODO-->
-              <!-- <ul class="cat_menu">
+              <ul class="cat_menu">
                 <li *ngFor="let category of categories" >
-                  <a>{{ category.name }}</a>
+                  <a (click)="onCategoryChange(category)">{{ category.name }}</a>
                 </li>
-              </ul> -->
+              </ul>
             </div>
 
           </div>
