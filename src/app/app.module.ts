@@ -10,6 +10,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { QuotesComponent } from './pages/quotes/quotes.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
@@ -43,10 +45,12 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     ModalModule,
     HttpClientModule,
     HttpModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent]

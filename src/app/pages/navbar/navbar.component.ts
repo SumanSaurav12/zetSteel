@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from "src/app/services/http.service";
 
 @Component({
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   location: string = 'Bangalore';
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private toastr: ToastrService) {}
 
   ngOnInit () {
     this.categories = this.http.getCategory();
@@ -74,5 +75,6 @@ export class NavbarComponent implements OnInit {
       createdAt: Date.now(),
     }
     this.http.setCustomerEnquiryList([enquiry]);
+    this.toastr.success('Enquiry submitted');
   }
 }
