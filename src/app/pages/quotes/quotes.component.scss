@@ -1,0 +1,278 @@
+.card-container {
+  padding: 12px 12px 8px 12px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.18), 0 0px 0px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  margin: 0px 16px 24px 16px;
+  .card-upper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .card-right-header {
+      display: flex;
+    }
+    .card-left-header {
+      width: 50%;
+      display: flex;
+    }
+  }
+}
+.card-lower {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confidence-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.header-text {
+  color: rgb(125, 125, 125);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  line-height: 16px;
+}
+
+.col {
+  min-width: 0;
+  margin-right: 20px;
+}
+
+.subject-line {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.status-box {
+  width: 170px;
+}
+
+.vertical-break-right {
+  margin-left: 10px;
+  background: rgb(231, 231, 231);
+  border-radius: 0px;
+  width: 1px;
+}
+
+.subject-line-right {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: right;
+}
+
+.subject-line-left {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: left;
+  img {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.m-w {
+  min-width: 0;
+}
+
+.column-details {
+  width: fit-content;
+  min-width: 0px;
+}
+
+.align-text-right {
+  text-align: right;
+}
+.header-text-line {
+  color: rgb(125, 125, 125);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  line-height: 16px;
+  color: rgb(125, 125, 125);
+}
+
+.countdown {
+  font-size: 12px;
+  padding-left: 4px;
+  font-weight: bold;
+}
+
+.yellow {
+  color: rgb(230, 133, 0) !important;
+}
+
+.comment-icon {
+  margin-right: 8px;
+  cursor: pointer;
+  color: rgb(111, 111, 111);
+}
+
+.red {
+  color: rgb(201, 0, 0) !important;
+  font-weight: bold !important;
+}
+.grey {
+  color: rgb(125, 125, 125) !important;
+  font-size: 12px;
+  font-weight: normal !important;
+}
+
+.green {
+  color: rgb(32, 140, 32) !important;
+  font-size: 12px;
+  font-weight: bold !important;
+  letter-spacing: 0px;
+  line-height: 16px;
+}
+
+.card-right-header {
+  width: 50%;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.divider {
+  margin-left: -12px;
+  margin-right: -12px;
+  background: #a0a0a0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.days-duration {
+  margin-left: 4px;
+  color: rgb(125, 125, 125);
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+}
+
+.dot-opaque {
+  opacity: 0.7;
+}
+
+.ml-25 {
+  margin-left: 25px;
+}
+
+.vertical-break {
+  background: rgb(231, 231, 231);
+  border-radius: 0px;
+  margin-right: 15px;
+  width: 1px;
+}
+
+.card-left {
+  display: flex;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.column-details-pr-10 {
+  padding-right: 10px;
+  width: 170px;
+}
+
+.moment {
+  height: 21px;
+  color: #fa9917;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  line-height: 21px;
+  // text-align: center;
+  font-weight: normal;
+  span {
+    // font-weight: 500;
+  }
+}
+
+.column-details-pr-20 {
+  padding-right: 20px;
+  width: fit-content;
+}
+
+.status-chip {
+  width: fit-content;
+  padding: 0px 4px 0px 4px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 16px;
+  letter-spacing: 0px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.right-align-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+.align-right {
+  text-align: right;
+}
+
+.ml-35 {
+  margin-left: 35px;
+}
+
+.margin {
+  background: #e1e4e9;
+  border-radius: 2px;
+  color: rgb(125, 125, 125);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px 6px;
+  line-height: 1.3;
+}
+.percentage {
+  margin-left: 7px;
+  color: rgb(125, 125, 125);
+  font-size: 14px;
+  .zmdi-caret-up {
+    font-size: 18px;
+  }
+}
+
+.btn-submit {
+  font-weight: 400;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: #0075E3;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
+  border-radius: 3px;
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+
+// modal
+.order-checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.order-checkbox {
+  margin: 0px 6px;
+
+  & label {
+    margin-bottom: 0px;
+  }
+  & input {
+    margin-right: 4px;
+  }
+}

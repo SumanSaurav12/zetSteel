@@ -121,12 +121,12 @@ export class SalesComponent implements OnInit {
         "quantity": 3000
       }
     ];
-    for (const iterator of array) {
-      let result = this.http.postQuotations(iterator).subscribe(resp => {
-        console.log('return', resp);
-      });
+    // for (const iterator of array) {
+    //   let result = this.http.postQuotations(iterator).subscribe(resp => {
+    //     console.log('return', resp);
+    //   });
       
-    }
+    // }
 
   }
 
