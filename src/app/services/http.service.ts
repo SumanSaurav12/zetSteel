@@ -42,7 +42,10 @@ export class HttpService {
   }
 
   public setProductSupplierRespList(list: []) {
-     localStorage.setItem('productSupplierRespList', JSON.stringify(list));
+    let oldList = this.getProductSupplierRespList();
+    let newList = [...oldList, ...list];
+    localStorage.setItem('productSupplierRespList', JSON.stringify(newList));
+    // localStorage.setItem('productSupplierRespList', JSON.stringify(list));
   }
 
   public getProductSupplierRespList() {
@@ -51,7 +54,10 @@ export class HttpService {
   }
 
   public setTransportSupplierRespList(list: []) {
-     localStorage.setItem('transportSupplierRespList', JSON.stringify(list));
+    let oldList = this.getTransportSupplierRespList();
+    let newList = [...oldList, ...list];
+    localStorage.setItem('transportSupplierRespList', JSON.stringify(newList));
+    // localStorage.setItem('transportSupplierRespList', JSON.stringify(list));
   }
 
   public getTransportSupplierRespList() {

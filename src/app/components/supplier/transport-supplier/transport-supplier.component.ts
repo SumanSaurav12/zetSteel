@@ -39,7 +39,7 @@ export class TransportSupplierComponent implements OnInit {
         this.filteredEnquiryForSupplier.push(enquiry);
       }
     }
-    console.log('filteredEnquiryForSupplier', filteredEnquiryForSupplier);
+    console.log('this.filteredEnquiryForSupplier', this.filteredEnquiryForSupplier);
   }
 
   setIsSelectedByTransportSupplier(enquiryId: any, event: any) {
@@ -82,7 +82,7 @@ export class TransportSupplierComponent implements OnInit {
     console.log('this.filteredEnquiryForSupplier', this.filteredEnquiryForSupplier);
     const selectedRespToSend = this.filteredEnquiryForSupplier.filter((enquiry: any) => enquiry.isSelectedByTransportSupplier);
     console.log('selectedRespToSend', selectedRespToSend);
-    if (selectedRespToSend.length) {
+    if (selectedRespToSend && selectedRespToSend.length) {
       this.hasError = false;
       this.http.setTransportSupplierRespList(selectedRespToSend);
     } else {
