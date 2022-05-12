@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { suppliers } from 'src/app/model/supplier';
 import { HttpService } from 'src/app/services/http.service';
 @Component({
@@ -10,14 +11,17 @@ export class TransportSupplierComponent implements OnInit {
 
   filteredEnquiryForSupplier:any = [];
   
-  supplierId = 'supplier1';
+  supplierId = '';
   hasError = false;
   supplierData = suppliers;
 
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService,
+    private _route: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.supplierId = this._route.snapshot.params['id'];
     this.getAllEnquiries();
+    console.log('selected supplier - ', this.supplierId);
   }
 
   getAllEnquiries() {
@@ -35,7 +39,7 @@ export class TransportSupplierComponent implements OnInit {
         this.filteredEnquiryForSupplier.push(enquiry);
       }
     }
-    console.log('filteredEnquiryForSupplier', filteredEnquiryForSupplier);
+    console.log('this.filteredEnquiryForSupplier', this.filteredEnquiryForSupplier);
   }
 
   setIsSelectedByTransportSupplier(enquiryId: any, event: any) {
@@ -78,7 +82,7 @@ export class TransportSupplierComponent implements OnInit {
     console.log('this.filteredEnquiryForSupplier', this.filteredEnquiryForSupplier);
     const selectedRespToSend = this.filteredEnquiryForSupplier.filter((enquiry: any) => enquiry.isSelectedByTransportSupplier);
     console.log('selectedRespToSend', selectedRespToSend);
-    if (selectedRespToSend.length) {
+    if (selectedRespToSend && selectedRespToSend.length) {
       this.hasError = false;
       this.http.setTransportSupplierRespList(selectedRespToSend);
     } else {

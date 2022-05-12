@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'customer', component: CustomerComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'supplier', component: SupplierComponent },
-  { path: 'supplier/transport', component: TransportSupplierComponent },
-  { path: 'supplier/product', component: ProductSupplierComponent },
+  { path: 'supplier/:id/transport', component: TransportSupplierComponent },
+  { path: 'supplier/:id/product', component: ProductSupplierComponent },
   { path: 'customer/home', component: HomePageComponent },
   { path: 'customer/category/:id', component: ProductListingComponent },
   { path: 'customer/quotes', component: QuotesComponent }
