@@ -30,9 +30,9 @@ export class HttpService {
     // return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/quotation.json', body);
   }
 
-  public getOrdersForACustomer(body: any) {
-    console.log(body);
-    return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/order.json', body);
+  public getOrdersForACustomer(id: any) {
+    console.log(id);
+    return this.http.get('https://apis-30c9f-default-rtdb.firebaseio.com/order.json',);
   }
 
   public setSalesEnquiryList(list: []) {

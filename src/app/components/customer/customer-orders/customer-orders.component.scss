@@ -19,3 +19,78 @@
     color: black;
   }
 }
+
+.enquiry-list-container {
+  margin-top: 20px;
+  .team-name {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .checkbox {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .header {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .resp-btn {
+    padding: 20px 40px;
+    text-align: end;
+  }
+
+  .send-enquiry-btn {
+    text-align: end;
+
+    :not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+
+    font-weight: 400;
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #0075E3;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
+    border-radius: 3px;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+  }
+
+  .large-text {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .normal-text {
+    font-size: 14px;
+    color: #4A4A4A;
+  }
+
+  .small-text {
+    font-size: 12px;
+    color: #7D7D7D;
+  }
+
+  .enquiry-grid {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    grid-column-gap: 10px;
+  }
+
+  .table-header {
+    @extend .enquiry-grid;
+    padding: 8px 22px;
+    background: rgba(141, 151, 173, 0.1);
+    box-shadow: inset 0px -1px 0px #E7E7E7;
+  }
+
+  .table-body {
+    @extend .enquiry-grid;
+    padding: 12px 22px;
+    box-shadow: inset 0px -1px 0px #E7E7E7;
+    align-items: center;
+  }
+}

@@ -12,6 +12,7 @@ export class CustomerOrdersComponent implements OnInit {
   categories: any;
 
   customerId: any;
+  customerOrderList:any;
 
   constructor(private http: HttpService, private route: ActivatedRoute) {}
 
@@ -19,6 +20,16 @@ export class CustomerOrdersComponent implements OnInit {
     this.customerId = this.route.snapshot.params['id'];
 
     this.categories = this.http.getCategory();
+    
+    this.getAllEnquiries();
+  }
+
+  getAllEnquiries() {
+    this.http.getOrdersForACustomer(this.customerId).subscribe((res : any) => {
+      console.log('res', res)
+      this.customerOrderList = Object.values(res);
+      console.log('this.customerOrderList', this.customerOrderList);
+    });
   }
 
   // TODO remove
