@@ -7,13 +7,30 @@
 .trends_button {
   display: flex;
   align-items: center;
+
+  background-color: #fff;
+  border: 1px solid #7f7f7f;
+
+  border-radius: 3px;
+
+  & input {
+    background: transparent;
+    border: 0px;
+
+    outline: none;
+
+    font-size: 12px;
+    width: 65%;
+
+    padding: 2px 4px;
+  }
 }
 
 .filters {
   min-height: 400px;
   min-width: 250px;
   background-color: #fff;
-  margin: 10px 22px 10px 10px;
+  margin: 10px 22px 10px 0px;
 
   border-radius: 8px;
   box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
@@ -37,10 +54,6 @@
       margin-left: 16px;
     }
   }
-}
-
-.product-card {
-  box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
 }
 
 .cat_menu_container {
@@ -67,4 +80,44 @@
   & .cat_menu_text {
     color: black;
   }
+}
+
+
+// image styles
+
+.product-card {
+  box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
+  padding: 16px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+
+  & img {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+
+    border-radius: 8px;
+  }
+}
+
+.trends_content {
+  & div {
+    margin: 2px 0px;
+  }
+}
+
+
+.btn-zetwerk {
+  font-weight: 400;
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #0075E3;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
+  border-radius: 0px;
+  color: #FFFFFF;
+  border: 1px solid#0075E3;
 }

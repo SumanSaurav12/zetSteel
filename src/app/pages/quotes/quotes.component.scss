@@ -3,7 +3,7 @@
   cursor: pointer;
   background: rgb(255, 255, 255);
   border-radius: 4px;
-  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.18), 0 0px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 16px -4px rgb(0 0 0 / 12%);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   margin: 0px 16px 24px 16px;
@@ -249,7 +249,7 @@
 
 .btn-submit {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   padding: 4px 8px;
   background: #0075E3;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.103147);
@@ -259,21 +259,31 @@
   cursor: pointer;
 }
 
+.btn-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0px;
+}
+
 
 // modal
 .order-checkbox-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 16px 0px;
 }
 
 .order-checkbox {
   margin: 0px 6px;
 
   & label {
+    color: #828282;
+    font-size: 16px;
     margin-bottom: 0px;
   }
   & input {
-    margin-right: 4px;
+    margin-right: 8px;
   }
 }
 
@@ -296,5 +306,29 @@
 
   & .cat_menu_text {
     color: black;
+  }
+}
+
+//
+.modal-body {
+  strong {
+    font-size: 16px;
+  }
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+
+  & label {
+    margin-bottom: 0px;
+    margin-right: 8px;
+  }
+
+  & input {
+    padding: 4px;
+    border: 1px solid #7f7f7f;
+
+    outline: none;
   }
 }

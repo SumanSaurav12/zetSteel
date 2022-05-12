@@ -15,7 +15,7 @@ export const items = [
     name: 'TMT Bar 10mm EQR',
     metadata: {
       "grade": "EQR",
-      "size": "8mm"
+      "size": "10mm"
     },
     imageUrl: "https://steeloncall.com/media/catalog/product/cache/1/small_image/361x/9df78eab33525d08d6e5fb8d27136e95/8/m/8mm_rebars.jpg",
     category: "TMT-BAR",
@@ -26,7 +26,7 @@ export const items = [
     name: 'TMT Bar pipes 12mm EQR',
     metadata: {
       "grade": "EQR",
-      "size": "8mm"
+      "size": "12mm"
     },
     imageUrl: "https://steeloncall.com/media/catalog/product/cache/1/small_image/361x/9df78eab33525d08d6e5fb8d27136e95/8/m/8mm_rebars.jpg",
     category: "TMT-BAR",
@@ -37,7 +37,7 @@ export const items = [
     name: 'SAIL TMT EQR 14mm EQR',
     metadata: {
       "grade": "HCR",
-      "size": "8mm"
+      "size": "14mm"
     },
     imageUrl: "https://steeloncall.com/media/catalog/product/cache/1/small_image/361x/9df78eab33525d08d6e5fb8d27136e95/8/m/8mm_rebars.jpg",
     category: "TMT-BAR",
@@ -48,7 +48,7 @@ export const items = [
     name: 'SAIL TMT HCR 16mm EQR',
     metadata: {
       "grade": "HCR",
-      "size": "8mm"
+      "size": "16mm"
     },
     imageUrl: "https://steeloncall.com/media/catalog/product/cache/1/small_image/361x/9df78eab33525d08d6e5fb8d27136e95/8/m/8mm_rebars.jpg",
     category: "TMT-BAR",

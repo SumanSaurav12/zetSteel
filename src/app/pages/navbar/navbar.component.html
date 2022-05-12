@@ -13,7 +13,7 @@
           </div>
         </div>
         <!-- Search -->
-        <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+        <!-- <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
           <div class="header_search">
             <div class="header_search_content">
               <div class="header_search_form_container">
@@ -23,7 +23,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Wishlist -->
         <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
@@ -119,7 +119,9 @@
     <section class="row">
       <div style="width:300px;min-height:300px;" *ngFor="let item of items" class="trends_item is_new product-card">
           <!-- <router-link v-bind:to="'/product/'+product.pId"> -->
-          <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img  width="200" height="200" [src]='item.imageUrl' alt=""></div>	
+          <div class="trends_image image-container">
+            <img [src]='item.imageUrl' alt="">
+          </div>
           <div class="trends_content">
             <div class="trends_category"><a href="#">{{ item.category }}</a></div>
             <div class="trends_info clearfix">
@@ -130,7 +132,7 @@
           </div>
           <div class="trends_button">
             <input type="text" (change)="updateQuantity(item, $event)" placeholder="Please enter quantity">
-            <button type="button" (click)="onSubmitEnquiry(item)" class="btn btn-sm btn-primary ml-2">Submit Enquiry</button>
+            <button type="button" (click)="onSubmitEnquiry(item)" class="btn-zetwerk">Submit Enquiry</button>
           </div>
           <div class="trends_fav"><i class="fas fa-heart"></i></div>
         <!-- </router-link> -->

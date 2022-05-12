@@ -13,7 +13,7 @@
           </div>
         </div>
         <!-- Search -->
-        <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+        <!-- <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
           <div class="header_search">
             <div class="header_search_content">
               <div class="header_search_form_container">
@@ -23,7 +23,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Wishlist -->
         <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
@@ -185,9 +185,15 @@
     </button>
   </div>
   <div class="modal-body">
-    <li>Name: {{ selectedQuotation.itemName }}</li>
-    <li>Price: Rs {{ selectedQuotation.totalPrice }}</li>
-    <li>Quantity: {{ selectedQuotation.quantity }}</li>
+    <p>
+      Name: <strong>{{ selectedQuotation.itemName }}</strong>
+    </p>
+    <p>
+      Price: <strong>Rs {{ selectedQuotation.totalPrice }}</strong>
+    </p>
+    <p>
+      Quantity: <strong>{{ selectedQuotation.quantity }} tons</strong>
+    </p>
     <div class="order-checkbox-container">
       <span class="order-checkbox">
         <input type="checkbox" (change)="onInsuranceAvail($event)" [checked]="isInsuranceAvail">
@@ -198,11 +204,11 @@
         <label>Avail Credit</label>
       </span>
     </div>
-    <div *ngIf="isCreditAvail" class="order-checkbox-container">
+    <div *ngIf="isCreditAvail" class="form-input">
       <label>GST No.</label>
       <input type="text" placeholder="Please enter your gst number" (change)="onGstChange($event)">
     </div>
 
-    <button type="button" class="btn-submit" (click)="onSubmit()">Finalize Order</button>
+    <button type="button" class="btn-submit btn-right" (click)="onSubmit()">Finalize Order</button>
   </div>
 </ng-template>
