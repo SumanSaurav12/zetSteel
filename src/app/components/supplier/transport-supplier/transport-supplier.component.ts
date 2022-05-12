@@ -27,7 +27,7 @@ export class TransportSupplierComponent implements OnInit {
   getAllEnquiries() {
     const allEnquiries = this.http.getSalesEnquiryList();
     console.log('allEnquiries', allEnquiries);
-    const filteredEnquiryForSupplier = allEnquiries.filter((data: any) => data.isSelectedBySales);
+    const filteredEnquiryForSupplier = allEnquiries.filter((data: any) => data.isSelectedBySalesForSendingEnquiry);
     this.filteredEnquiryForSupplier = [];
 
     for (const enquiry of filteredEnquiryForSupplier) {

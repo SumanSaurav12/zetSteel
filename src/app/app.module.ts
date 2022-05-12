@@ -20,8 +20,8 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { TransportSupplierComponent } from './components/supplier/transport-supplier/transport-supplier.component';
 import { ProductSupplierComponent } from './components/supplier/product-supplier/product-supplier.component';
-// import { HttpModule } from '@angular/http';
-// import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +44,8 @@ import { ProductSupplierComponent } from './components/supplier/product-supplier
     BrowserModule,
     AppRoutingModule,
     ModalModule,
-    // HttpClientModule,
-    // HttpModule,
+    HttpClientModule,
+    HttpModule,
     ModalModule.forRoot()
   ],
   providers: [BsModalService],

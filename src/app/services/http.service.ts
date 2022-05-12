@@ -11,7 +11,7 @@ import {
 @Injectable({ providedIn: 'root' })
 export class HttpService {
 
-  // constructor(private http: HttpClient){};
+  constructor(private http: HttpClient){};
 
   appliedFilters: any = {};
 
@@ -28,6 +28,11 @@ export class HttpService {
   public postQuotations(body: any) {
     console.log(body);
     // return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/quotation.json', body);
+  }
+
+  public getOrdersForACustomer(body: any) {
+    console.log(body);
+    return this.http.post('https://apis-30c9f-default-rtdb.firebaseio.com/order.json', body);
   }
 
   public setSalesEnquiryList(list: []) {
@@ -63,6 +68,18 @@ export class HttpService {
 
   public getTransportSupplierRespList() {
     let result = localStorage.getItem('transportSupplierRespList') || null;
+    return result ? JSON.parse(result) : [];
+  }
+
+  public setFinalQuotationList(list: []) {
+    let oldList = this.getFinalQuotationList();
+    let newList = [...oldList, ...list];
+    localStorage.setItem('finalQuotationList', JSON.stringify(newList));
+    // localStorage.setItem('finalQuotationList', JSON.stringify(list));
+  }
+
+  public getFinalQuotationList() {
+    let result = localStorage.getItem('finalQuotationList') || null;
     return result ? JSON.parse(result) : [];
   }
 

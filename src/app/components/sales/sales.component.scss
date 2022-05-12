@@ -58,14 +58,17 @@
     grid-template-columns: 5% 22% 19% 14% 23% 5%;
     grid-column-gap: 10px;
   }
+  .quotation-grid {
+    display: grid;
+    grid-template-columns: 5% 7% 8% 9% 10% 7% 8% 9% 8% 9% 10%;
+    grid-column-gap: 10px;
+  }
   .table-header {
-    @extend .enquiry-grid;
     padding: 8px 22px;
     background: rgba(141, 151, 173, 0.1);
     box-shadow: inset 0px -1px 0px #E7E7E7;
   }
   .table-body {
-    @extend .enquiry-grid;
     padding: 12px 22px;
     box-shadow: inset 0px -1px 0px #E7E7E7;
     align-items: center;

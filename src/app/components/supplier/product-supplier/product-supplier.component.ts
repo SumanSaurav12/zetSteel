@@ -26,7 +26,7 @@ export class ProductSupplierComponent implements OnInit {
   getAllEnquiries() {
     const allEnquiries = this.http.getSalesEnquiryList();
     console.log('allEnquiries', allEnquiries);
-    const filteredEnquiryForSupplier = allEnquiries.filter((data: any) => (data.supplierIds.filter((supplierId: any)=> supplierId === this.supplierId)).length && data.isSelectedBySales);
+    const filteredEnquiryForSupplier = allEnquiries.filter((data: any) => (data.supplierIds.filter((supplierId: any)=> supplierId === this.supplierId)).length && data.isSelectedBySalesForSendingEnquiry);
     this.filteredEnquiryForSupplier = [];
     let enquiryMapper: any = {};
     for (const enquiry of filteredEnquiryForSupplier) {

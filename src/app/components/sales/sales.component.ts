@@ -13,8 +13,10 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 export class SalesComponent implements OnInit {
 
   enquiryData: any = [];
-  listData:any = [];
+  enquiryListData:any = [];
+  quotationListData:any = [];
   selectedTab = 'enquiry';
+  quotations: any = [];
   constructor(private modalService: BsModalService, private http: HttpService) { }
 
   ngOnInit(): void {
@@ -36,20 +38,19 @@ export class SalesComponent implements OnInit {
           ...(customer && {email: customer.email}),
           ...(customer && {phoneNumber: customer.phoneNumber}),
         }
-        this.listData.push(obj);
+        this.enquiryListData.push(obj);
       }
     } else if (this.selectedTab === 'quotation') {
       let allSalesEnquiries = this.http.getSalesEnquiryList();
-      let quotes = [];
 
-      allSalesEnquiries = allSalesEnquiries.filter((eq: any) => eq.isSelectedBySales);
+      allSalesEnquiries = allSalesEnquiries.filter((eq: any) => eq.isSelectedBySalesForSendingEnquiry);
 
       const allProductSupplierRespList = this.http.getProductSupplierRespList();
 
       const allTransportSupplierRespList = this.http.getTransportSupplierRespList();
-
+      console.log(allSalesEnquiries);
       for (const salesEq of allSalesEnquiries) {
-
+        console.log(salesEq);
         for(let i = 0; i< salesEq.supplierIds.length; i++) {
 
           let quote: any = {};
@@ -82,17 +83,27 @@ export class SalesComponent implements OnInit {
             quote.transportMargin = 2;
             quote.totalPrice = totalPriceWithGST;
             quote.expectedDate = productSupplier.deliveryDate;
+            quote.itemName = salesEq.itemName;
+            quote.quantity = salesEq.quantity;
+            quote.location = salesEq.location;
+            quote.customerName = salesEq.customerName;
+            quote.phoneNumber = salesEq.phoneNumber;
+            quote.email = salesEq.email;
+            quote.product = salesEq.itemName;
+            quote.itemName = salesEq.itemName;
           }
 
-          if (quote && quote !== {}) {
-            quotes.push(quote);
+          if (Object.keys(quote).length !== 0) {
+            this.quotationListData.push(quote);
           }
 
         }
 
 
         // TODO make fn in service
-        localStorage.setItem('salesQuotationList', JSON.stringify(quotes));
+        // localStorage.setItem('salesQuotationList', JSON.stringify(this.quotationListData));
+
+
 
         // let cumulatedItemData = allProductSupplierRespList.find((res: any)=> res.itemId === salesEq.itemId);
         // let quantity = salesEq.quantity;
@@ -100,20 +111,29 @@ export class SalesComponent implements OnInit {
         // salesEq['finalAmt'] = quantity * unitPrice;
       }
 
-      
+      console.log('this.quotationListData', this.quotationListData);
     } 
   }
 
 
-  selectItem(enquiryId: any, event: any) {
+  selectEnquiryItem(enquiryId: any, event: any) {
     console.log('event', event);
-    this.listData.map((enquiry: any) => {
+    this.enquiryListData.map((enquiry: any) => {
       if(enquiry.id === enquiryId) {
-        console.log('khsdgchjkgs')
-        enquiry['isSelectedBySales'] = event.target.checked;
+        enquiry['isSelectedBySalesForSendingEnquiry'] = event.target.checked;
       }
     });
-    console.log('this.listData', this.listData);
+    console.log('this.enquiryListData', this.enquiryListData);
+  }
+
+  selectQuotationItem(enquiry: any, event: any) {
+    console.log('event', event);
+    this.quotationListData.map((enq: any) => {
+      if(enq.id === enquiry.id) {
+        enquiry['isSelectedBySalesForSendingQuotation'] = event.target.checked;
+      }
+    });
+    console.log('this.QuotationListData', this.quotationListData);
   }
 
   setTab(tab: any) {
@@ -123,7 +143,7 @@ export class SalesComponent implements OnInit {
   }
 
   sendEnquiryToSupplier() {
-    this.http.setSalesEnquiryList(this.listData);
+    this.http.setSalesEnquiryList(this.enquiryListData);
     
     
     // const confirmationData = {
@@ -181,7 +201,7 @@ export class SalesComponent implements OnInit {
   }
 
   approveAllQuotations() {
-    
+    this.http.setFinalQuotationList(this.enquiryListData);
   }
 
 }

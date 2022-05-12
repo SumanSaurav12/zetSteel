@@ -9,7 +9,7 @@
       <button type="button" class="send-enquiry-btn" (click)="sendEnquiryToSupplier()">Send Enquiries To
         Supplier</button>
     </div>
-    <div class="table-header">
+    <div class="table-header enquiry-grid">
       <div></div>
       <div>Product name</div>
       <div>Quantity</div>
@@ -17,8 +17,9 @@
       <div>Customer</div>
       <div>Status</div>
     </div>
-    <div class="table-body" *ngFor="let enquiry of listData">
-      <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted" (change)="selectItem(enquiry.id, $event)" />
+    <div class="table-body enquiry-grid" *ngFor="let enquiry of enquiryListData">
+      <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted"
+          (change)="selectEnquiryItem(enquiry.id, $event)" />
       </div>
       <div class="normal-text">{{ enquiry?.itemName }}</div>
       <div class="normal-text">{{ enquiry?.quantity }}</div>
@@ -34,6 +35,39 @@
   <div *ngIf="selectedTab === 'quotation'">
     <div class="header">
       <button type="button" class="send-enquiry-btn" (click)="approveAllQuotations()">Approve Selected Quotations</button>
+    </div>
+
+    <div class="table-header quotation-grid">
+      <div></div>
+      <div>Product name</div>
+      <div>Quantity</div>
+      <div>Location</div>
+      <div>Customer</div>
+      <div>Delivery Date</div>
+      <div>Product Price</div>
+      <div>Product Margin</div>
+      <div>Transportation Price</div>
+      <div>Transportation Margin</div>
+      <div>Final Price</div>
+    </div>
+    <div class="table-body quotation-grid" *ngFor="let enquiry of quotationListData">
+      <div><input type="checkbox" class="oms-checkbox" id="istdsDeducted"
+          (change)="selectQuotationItem(enquiry, $event)" />
+      </div>
+      <div class="normal-text">{{ enquiry?.itemName }}</div>
+      <div class="normal-text">{{ enquiry?.quantity }}</div>
+      <div class="normal-text">{{ enquiry?.location }}</div>
+      <div>
+        <div class="normal-text">{{ enquiry?.customerName }}</div>
+        <div class="small-text">{{ enquiry?.email }}</div>
+        <div class="small-text">{{ enquiry?.phoneNumber }}</div>
+      </div>
+      <div class="normal-text">{{ enquiry?.expectedDate }}</div>
+      <div class="normal-text">{{ enquiry?.supplierPrice }}</div>
+      <div class="normal-text">{{ enquiry?.supplierMargin }}</div>
+      <div class="normal-text">{{ enquiry?.transportPrice }}</div>
+      <div class="normal-text">{{ enquiry?.transportMargin }}</div>
+      <div class="normal-text">{{ enquiry?.totalPrice }}</div>
     </div>
   </div>
 </div>
