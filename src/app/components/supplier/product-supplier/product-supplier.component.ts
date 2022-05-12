@@ -32,7 +32,8 @@ export class ProductSupplierComponent implements OnInit {
         itemName: enquiry.itemName,
         location: enquiry.location,
         quantity: enquiry.quantity,
-        supplierIds: enquiry.supplierIds
+        supplierIds: enquiry.supplierIds,
+        supplierId: this.supplierId
       }
       let eq = enquiryMapper[enquiry.itemId];
       if (!eq) {

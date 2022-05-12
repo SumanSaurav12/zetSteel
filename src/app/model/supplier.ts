@@ -48,43 +48,11 @@ export const suppliers = [
     name: 'A  S Logistic',
     type: 'Transport',
     location: 'Chennai',
-    items: [
-      {
-        id: 'item1',
-        price: 3424
-      },
-      {
-        id: 'item3',
-        price: 5643
-      },
-      {
-        id: 'item5',
-        price: 786
-      }
-    ]
   },
   {
     id: 'supplier4',
     name: 'Barakath Engineering Inds. P Ltd',
     type: 'Transport',
     location: 'Bangalore',
-    items: [
-      {
-        id: 'item1',
-        price: 342
-      },
-      {
-        id: 'item2',
-        price: 567
-      },
-      {
-        id: 'item3',
-        price: 564
-      },
-      {
-        id: 'item4',
-        price: 786
-      }
-    ]
   },
 ];

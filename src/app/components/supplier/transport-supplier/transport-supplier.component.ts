@@ -31,6 +31,7 @@ export class TransportSupplierComponent implements OnInit {
         console.log(supplierId);
         let supplier = this.supplierData.find((supplier: any) => supplier.id === supplierId);
         enquiry['fromLocation'] = supplier && supplier.location;
+        enquiry['supplierId'] = this.supplierId;
         this.filteredEnquiryForSupplier.push(enquiry);
       }
     }

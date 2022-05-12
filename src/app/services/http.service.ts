@@ -84,8 +84,9 @@ export class HttpService {
       maxPrice = Number.MIN_VALUE;
       minPrice = Number.MAX_VALUE;
 
-      const supplier = suppliers.filter((supplier) => { 
-      const supplierItem = supplier.items.find(item => item.id === itemByCategory.id); 
+      const prodSuppliers = suppliers.filter((supplier: any) => supplier.type === 'Product');
+      const supplier = prodSuppliers.filter((supplier: any) => { 
+      const supplierItem = supplier.items.find((item: any )=> item.id === itemByCategory.id); 
         
 
         if(supplierItem) {
