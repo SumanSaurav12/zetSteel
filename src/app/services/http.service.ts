@@ -94,6 +94,18 @@ export class HttpService {
     return result ? JSON.parse(result) : [];
   }
 
+  public setOrderList(list: any) {
+    debugger
+    const oldList = this.getOrderList();
+    const newList = [...oldList,...list];
+    localStorage.setItem('orders', JSON.stringify(newList));
+  }
+
+  public getOrderList() {
+    const result = localStorage.getItem('orders');
+    return result ? JSON.parse(result) : [];
+  }
+
   getProductByCategory(id: string) {
     const itemsByCategory = items.filter((item) => item.category === id);
 

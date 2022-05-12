@@ -77,23 +77,6 @@
               </ul> -->
             </div>
 
-            <div class="cat_menu_container">
-              <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-                <div class="cat_burger"><span></span><span></span><span></span></div>
-                <div class="cat_menu_text">Categories</div>
-              </div>
-
-              <ul class="cat_menu">
-                <li>Steel</li>
-              </ul>
-
-              <!--TODO-->
-              <!-- <ul class="cat_menu">
-                <li *ngFor="let category of categories" >
-                  <a>{{ category.name }}</a>
-                </li>
-              </ul> -->
-            </div>
           </div>
         </div>
       </div>
@@ -103,18 +86,18 @@
 </header>
 
 <!--Quotes listing-->
-<section class="trends">
-  <div class="card-container">
+<section *ngIf="quotations.length > 0" class="trends">
+  <div *ngFor="let quotation of quotations" class="card-container">
     <div class="card-header-wrapper">
       <div class="card-upper">
         <div class="card-left-header">
           <div class="col">
             <div class="subject-line">
-              TMT Bar pipes 8mm EQR
+              {{ quotation.itemName }}
             </div>
           </div>
         </div>
-        <div class="card-right-header">
+        <!-- <div class="card-right-header">
           <div class="ml-35 status-box">
             <div class="header-text-line align-text-right">
               Last date to quote
@@ -124,15 +107,15 @@
               <span>&#8226;</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <hr class="divider" />
       <div class="card-lower">
         <div class="card-left">
           <div class="column-details-pr-10">
-            <div class="header-text-line">Received Date</div>
+            <div class="header-text-line">Expected delivery date</div>
             <div class="subject-line">
-              24th Jan 2022
+              {{ quotation.expectedDate }}
             </div>
           </div>
           <div class="vertical-break"></div>
@@ -147,7 +130,7 @@
           <div class="column-details-pr-20">
             <div class="header-text-line">Quantity</div>
             <div class="subject-line-left">
-              2000 tonnes
+              {{ quotation.quantity  }}
             </div>
           </div>
           <div class="vertical-break"></div>
@@ -155,24 +138,21 @@
           <div class="column-details-pr-20">
             <div class="header-text-line">Price</div>
             <div class="subject-line-left">
-              10000
+              {{  quotation.totalPrice }}
             </div>
           </div>
         </div>
   
         <div class="card-right-header">
-          <div class="column-details">
+          <!-- <div class="column-details">
             <div class="header-text-line align-text-right">Last Updated</div>
             <div
               class="subject-line-right align-text-right"
             >
               24th Jan 2022
               <span>&#8226;</span>
-              <!-- <span class="days-duration">{{
-                getMoment(enquiryData?.updatedAt)
-              }}</span> -->
             </div>
-          </div>
+          </div> -->
   
           <div class="vertical-break-right"></div>
   
@@ -181,7 +161,7 @@
               label
             </div> -->
             <div class="subject-line-right align-text-right">
-              <button type="button" class="btn-submit" (click)="handleOrder(template)">Finalize Order</button>
+              <button type="button" class="btn-submit" (click)="handleOrder(quotation, template)">Finalize Order</button>
             </div>
           </div>
         </div>
@@ -198,9 +178,9 @@
     </button>
   </div>
   <div class="modal-body">
-    <li>Name: TMT Bar pipes 8mm EQR</li>
-    <li>Price: 10000</li>
-    <li>Quantity: 2000 tonnes</li>
+    <li>Name: {{ selectedQuotation.itemName }}</li>
+    <li>Price: Rs {{ selectedQuotation.totalPrice }}</li>
+    <li>Quantity: {{ selectedQuotation.quantity }}</li>
     <div class="order-checkbox-container">
       <span class="order-checkbox">
         <input type="checkbox" (change)="onInsuranceAvail($event)" [checked]="isInsuranceAvail">
@@ -215,5 +195,7 @@
       <label>GST No.</label>
       <input type="text" placeholder="Please enter your gst number" (change)="onGstChange($event)">
     </div>
+
+    <button type="button" class="btn-submit" (click)="onSubmit()">Finalize Order</button>
   </div>
 </ng-template>

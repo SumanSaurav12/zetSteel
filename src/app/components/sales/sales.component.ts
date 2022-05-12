@@ -90,7 +90,6 @@ export class SalesComponent implements OnInit {
             quote.phoneNumber = salesEq.phoneNumber;
             quote.email = salesEq.email;
             quote.product = salesEq.itemName;
-            quote.itemName = salesEq.itemName;
           }
 
           if (Object.keys(quote).length !== 0) {

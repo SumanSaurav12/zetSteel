@@ -1,24 +1,39 @@
-import { Component, TemplateRef } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { HttpService } from "src/app/services/http.service";
 
 @Component({
   selector: 'zet-quotes',
   templateUrl: './quotes.component.html',
   styleUrls: ['./quotes.component.scss']
 })
-export class QuotesComponent {
+export class QuotesComponent implements OnInit {
   modalRef?: BsModalRef;
 
   isCreditAvail: boolean = false;
 
   isInsuranceAvail: boolean = false;
 
+  quotations: any = [];
+
+  selectedQuotation: any;
+
   gstNo: string = '';
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService, private http: HttpService) {}
+
+  ngOnInit(): void {
+    //TODO Move it to the service
+    const customerQuotationList = localStorage.getItem('finalQuotationList');
+    if (customerQuotationList !== null) {
+      this.quotations = JSON.parse(localStorage.getItem('finalQuotationList') || '') || [];
+    }
+  }
  
-  handleOrder(template: TemplateRef<any>) {
+  handleOrder(quotation: any, template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+
+    this.selectedQuotation = quotation;
   }
 
   //
@@ -40,19 +55,18 @@ export class QuotesComponent {
     this.gstNo = '';
   }
 
-  onSubmit(quote: any) {
+  onSubmit() {
     const order = {
-      name: quote.name,
-      price: quote.price,
-      quantity: quote.quantity,
+      name: this.selectedQuotation.name,
+      price: this.selectedQuotation.price,
+      quantity: this.selectedQuotation.quantity,
       isCreditAvail: this.isCreditAvail,
       isInsuranceAvail: this.isInsuranceAvail,
       gst: this.gstNo,
       createdAt: Date.now()
     }
-
-
-    localStorage.setItem('orders', JSON.stringify(order));
+    
+    this.http.setOrderList([order]);
   }
 
 }
