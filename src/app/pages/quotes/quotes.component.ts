@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from "src/app/services/http.service";
 
 @Component({
@@ -20,7 +21,7 @@ export class QuotesComponent implements OnInit {
 
   gstNo: string = '';
 
-  constructor(private modalService: BsModalService, private http: HttpService) {}
+  constructor(private modalService: BsModalService, private http: HttpService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     //TODO Move it to the service
@@ -67,6 +68,8 @@ export class QuotesComponent implements OnInit {
     }
     
     this.http.setOrderList([order]);
+    this.toastr.success('Order has been placed successfully');
+    this.modalRef?.hide();
   }
 
 }

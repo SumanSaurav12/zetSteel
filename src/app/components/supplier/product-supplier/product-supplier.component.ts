@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class ProductSupplierComponent implements OnInit {
 
   constructor(
     private http: HttpService, 
-    private _route: ActivatedRoute,) { }
+    private _route: ActivatedRoute,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.supplierId = this._route.snapshot.params['id'];
@@ -96,6 +98,7 @@ export class ProductSupplierComponent implements OnInit {
     if (selectedRespToSend.length) {
       this.hasError = false;
       this.http.setProductSupplierRespList(selectedRespToSend);
+      this.toastr.success('Product supplier response submitted to Sales');
     } else {
       this.hasError = true;
     }

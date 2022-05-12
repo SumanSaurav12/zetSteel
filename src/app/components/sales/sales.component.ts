@@ -5,6 +5,7 @@ import { items } from 'src/app/model/item';
 import { ConfirmationPopupComponent } from '../confirmation-popup/confirmation-popup.component';
 import { HttpService } from 'src/app/services/http.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -17,7 +18,9 @@ export class SalesComponent implements OnInit {
   quotationListData:any = [];
   selectedTab = 'enquiry';
   quotations: any = [];
-  constructor(private modalService: BsModalService, private http: HttpService) { }
+  constructor(private modalService: BsModalService, 
+    private http: HttpService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.enquiryData = JSON.parse(localStorage.getItem('customerEnquiryList') || '') || [];
@@ -143,7 +146,7 @@ export class SalesComponent implements OnInit {
 
   sendEnquiryToSupplier() {
     this.http.setSalesEnquiryList(this.enquiryListData);
-    
+    this.toastr.success('Enquiry sent to suppliers');
     
     // const confirmationData = {
     //   title: 'Delete Bill',
@@ -201,6 +204,7 @@ export class SalesComponent implements OnInit {
 
   approveAllQuotations() {
     this.http.setFinalQuotationList(this.quotationListData);
+    this.toastr.success('Quotation submitted to customer');
   }
 
 }

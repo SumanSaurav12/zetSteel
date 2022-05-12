@@ -95,7 +95,6 @@ export class HttpService {
   }
 
   public setOrderList(list: any) {
-    debugger
     const oldList = this.getOrderList();
     const newList = [...oldList,...list];
     localStorage.setItem('orders', JSON.stringify(newList));

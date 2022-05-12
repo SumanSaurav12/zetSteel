@@ -75,6 +75,6 @@ export class NavbarComponent implements OnInit {
       createdAt: Date.now(),
     }
     this.http.setCustomerEnquiryList([enquiry]);
-    this.toastr.success('Enquiry submitted');
+    this.toastr.success('Enquiry submitted to Sales Team');
   }
 }
