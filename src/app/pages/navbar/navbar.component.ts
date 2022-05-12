@@ -60,6 +60,7 @@ export class NavbarComponent implements OnInit {
 
   onSubmitEnquiry(item: any) {
     const supplierIds = item.suppliers.map((supplier: any) => supplier.id);
+    const transportSupplierIds = item.tansportSuppliers.map((supplier: any) => supplier.id);
     const enquiry = {
       id: `enquiry${Math.random()}`,
       itemId: item.id,
@@ -68,6 +69,7 @@ export class NavbarComponent implements OnInit {
       location: this.location,
       customerId: 'customer1',
       supplierIds: supplierIds,
+      transportSupplierIds: transportSupplierIds,
       status: 'OPEN',
       createdAt: Date.now(),
     }

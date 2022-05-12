@@ -91,6 +91,7 @@ export class HttpService {
       minPrice = Number.MAX_VALUE;
 
       const prodSuppliers = suppliers.filter((supplier: any) => supplier.type === 'Product');
+      const tansportSuppliers = suppliers.filter((supplier: any) => supplier.type === 'Transport');
       const supplier = prodSuppliers.filter((supplier: any) => { 
       const supplierItem = supplier.items.find((item: any )=> item.id === itemByCategory.id); 
         
@@ -107,7 +108,8 @@ export class HttpService {
         return false;
       });
 
-      itemByCategory.suppliers = supplier;
+      itemByCategory.suppliers = [...supplier];
+      itemByCategory.tansportSuppliers = [...tansportSuppliers];
       itemByCategory.minPrice = minPrice;
       itemByCategory.maxPrice = maxPrice;
       

@@ -40,14 +40,64 @@ export class SalesComponent implements OnInit {
       }
     } else if (this.selectedTab === 'quotation') {
       let allSalesEnquiries = this.http.getSalesEnquiryList();
+      let quotes = [];
+
       allSalesEnquiries = allSalesEnquiries.filter((eq: any) => eq.isSelectedBySales);
+
       const allProductSupplierRespList = this.http.getProductSupplierRespList();
+
       const allTransportSupplierRespList = this.http.getTransportSupplierRespList();
+
       for (const salesEq of allSalesEnquiries) {
-        let cumulatedItemData = allProductSupplierRespList.find((res: any)=> res.itemId === salesEq.itemId);
-        let quantity = salesEq.quantity;
-        let unitPrice = cumulatedItemData.productPrice;
-        salesEq['finalAmt'] = quantity * unitPrice;
+
+        for(let i = 0; i< salesEq.supplierIds.length; i++) {
+
+          let quote: any = {};
+
+          const productSupplier = allProductSupplierRespList.find((supplier: any) => {
+            return salesEq.supplierIds[i] === supplier.supplierId && supplier.itemId === salesEq.itemId
+          })
+
+          let tansportSupplier;
+          if (productSupplier) {
+            tansportSupplier = allTransportSupplierRespList.find((supplier: any) => {
+              return productSupplier.supplierId === supplier.productSupplierId && supplier.itemId === salesEq.itemId
+            })
+          }
+
+          // debugger
+
+          if (productSupplier && tansportSupplier) {
+            const quantity = +tansportSupplier.quantity;
+            const supplierPrice = +productSupplier.productPrice;
+            const totalSupplierPrice = +quantity * supplierPrice;
+            const transportPrice = +tansportSupplier.transportPrice;
+
+
+            const totalPriceBeforGST = totalSupplierPrice + (totalSupplierPrice * 1)/100 + transportPrice + (totalSupplierPrice * 2)/100;
+            const totalPriceWithGST = totalPriceBeforGST + (totalPriceBeforGST * 18)/100
+            quote.supplierPrice = totalSupplierPrice;
+            quote.supplierMargin = 1;
+            quote.transportPrice = transportPrice;
+            quote.transportMargin = 2;
+            quote.totalPrice = totalPriceWithGST;
+            quote.expectedDate = productSupplier.deliveryDate;
+          }
+
+          if (quote && quote !== {}) {
+            quotes.push(quote);
+          }
+
+        }
+
+
+        // TODO make fn in service
+        localStorage.setItem('salesQuotationList', JSON.stringify(quotes));
+
+        // let cumulatedItemData = allProductSupplierRespList.find((res: any)=> res.itemId === salesEq.itemId);
+        // let quantity = salesEq.quantity;
+        // let unitPrice = cumulatedItemData.productPrice;
+        // salesEq['finalAmt'] = quantity * unitPrice;
       }
 
       

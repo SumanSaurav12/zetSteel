@@ -11,7 +11,7 @@ export class TransportSupplierComponent implements OnInit {
 
   filteredEnquiryForSupplier:any = [];
   
-  supplierId = '';
+  supplierId = 'supplier3';
   hasError = false;
   supplierData = suppliers;
 
@@ -32,11 +32,14 @@ export class TransportSupplierComponent implements OnInit {
 
     for (const enquiry of filteredEnquiryForSupplier) {
       for (const supplierId of enquiry.supplierIds) {
-        console.log(supplierId);
+        let transportEnquiry: any = {
+          ...enquiry
+        };
         let supplier = this.supplierData.find((supplier: any) => supplier.id === supplierId);
-        enquiry['fromLocation'] = supplier && supplier.location;
-        enquiry['supplierId'] = this.supplierId;
-        this.filteredEnquiryForSupplier.push(enquiry);
+        transportEnquiry['fromLocation'] = supplier && supplier.location;
+        transportEnquiry['tansportSupplierId'] = this.supplierId;
+        transportEnquiry['productSupplierId'] = supplierId;
+        this.filteredEnquiryForSupplier.push(transportEnquiry);
       }
     }
     console.log('this.filteredEnquiryForSupplier', this.filteredEnquiryForSupplier);
@@ -69,10 +72,9 @@ export class TransportSupplierComponent implements OnInit {
     });
   }
 
-  setTransportPrice(enquiryId: any, event: any) {
-    console.log(event);
+  setTransportPrice(enquiryId: any, productSupplierId: any, event: any) {
     this.filteredEnquiryForSupplier.map((enquiry: any) => {
-      if(enquiry.id === enquiryId) {
+      if(enquiry.id === enquiryId && enquiry.productSupplierId === productSupplierId) {
         enquiry['transportPrice'] = event.target.value;
       }
     });
