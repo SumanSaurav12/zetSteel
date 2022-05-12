@@ -7,6 +7,7 @@
         <div class="col-lg-2 col-sm-3 col-3 order-1">
           <div class="logo_container">
             <div class="logo">
+              <!-- <a href="/">ZetSteel</a> -->
               <img src="/assets/svg/logo.svg" alt="no img" />
             </div>
           </div>
@@ -32,17 +33,17 @@
             
             </div>
                       <!-- Cart -->
-            <div class="cart">
+            <!-- <div class="cart">
               <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                 <div class="cart_icon">
                   <img src="@/assets/images/cart.png" alt="">
                   <div class="cart_count"><span>0</span></div>
                 </div>
                 <div class="cart_content">
-                  <div class="cart_text"><a href="'/quotes'">Quotes</a></div>
+                  <div class="cart_text"><a routerLink="quotes">Quotes</a></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           
           </div>
         </div>
@@ -59,23 +60,30 @@
           
           <div class="main_nav_content d-flex flex-row">
             <!-- Categories Menu -->
-            <div class="cat_menu_container">
+            <a [routerLink]="['/customer', customerId]" class="cat_menu_container mr-2 unselected-tab">
               <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                 <div class="cat_burger"><span></span><span></span><span></span></div>
                 <div class="cat_menu_text">categories</div>
               </div>
 
               <ul class="cat_menu">
-                <li>Steel</li>
-              </ul>
-
-              <ul class="cat_menu">
                 <li *ngFor="let category of categories" >
                   <a (click)="onCategoryChange(category)">{{ category.name }}</a>
                 </li>
               </ul>
-            </div>
+            </a>
 
+            <a [routerLink]="'quotes'" class="cat_menu_container mr-2 selected-tab">
+              <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                <div class="cat_menu_text">Enquiries</div>
+              </div>
+            </a>
+
+            <a [routerLink]="['/customer', customerId, 'orders']" class="cat_menu_container unselected-tab">
+              <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                <div class="cat_menu_text">Orders</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

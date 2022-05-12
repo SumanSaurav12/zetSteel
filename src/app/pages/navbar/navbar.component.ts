@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   location: string = 'Bangalore';
 
-  selectedTab = 'categories';
+  // selectedTab = 'categories';
 
   constructor(private http: HttpService, private toastr: ToastrService) {}
 
@@ -28,10 +28,10 @@ export class NavbarComponent implements OnInit {
     this.categories = this.http.getCategory();
   }
 
-  setTab(tab: any) {
-    console.log('tab', tab)
-    this.selectedTab = tab;
-  }
+  // setTab(tab: any) {
+  //   console.log('tab', tab)
+  //   this.selectedTab = tab;
+  // }
 
   onCategoryChange(category: any) {
     this.selectedCategory = category;

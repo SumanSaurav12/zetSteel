@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
+  customerId = ''
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -15,6 +16,16 @@ export class WelcomeComponent implements OnInit {
 
   redirectUser(pageToRedirect: any) {
     this.router.navigate([pageToRedirect]);
+  }
+
+  setCustomerId(event: any) {
+    this.customerId = event.target.value;
+  }
+
+  redirectToCustomer() {
+    if (this.customerId) {
+      this.router.navigate(['customer',this.customerId]);
+    }
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from "src/app/services/http.service";
@@ -13,6 +14,8 @@ export class QuotesComponent implements OnInit {
 
   categories: any;
 
+  customerId: any;
+
   isCreditAvail: boolean = false;
 
   isInsuranceAvail: boolean = false;
@@ -23,9 +26,11 @@ export class QuotesComponent implements OnInit {
 
   gstNo: string = '';
 
-  constructor(private modalService: BsModalService, private http: HttpService, private toastr: ToastrService) {}
+  constructor(private modalService: BsModalService, private http: HttpService, private toastr: ToastrService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    //
+    this.customerId = this.route.snapshot.params['id'];
 
     //TODO move to common component
     this.categories = this.http.getCategory();
