@@ -1,9 +1,13 @@
 <div class="welcome-page">
   <div class="title">ZET-STEEL</div>
   <div class="cards">
-    <div class="customer-card" (click)="redirectUser('customer')">
+    <div class="customer-card">
       <div>USER ICON</div>
       <div>Login as Customer</div>
+      <div><input type="text" id="supplierId" placeholder="Enter Customer Id"
+          (change)="setCustomerId($event)" /></div>
+
+      <div><button class="login-btn" (click)="redirectToCustomer()">Login</button></div>
     </div>
     <div class="sales-card" (click)="redirectUser('sales')">
       <div>USER ICON</div>

@@ -24,6 +24,7 @@ import { TransportSupplierComponent } from './components/supplier/transport-supp
 import { ProductSupplierComponent } from './components/supplier/product-supplier/product-supplier.component';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CustomerOrdersComponent } from './components/customer/customer-orders/customer-orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     WelcomeComponent,
     ConfirmationPopupComponent,
     TransportSupplierComponent,
-    ProductSupplierComponent
+    ProductSupplierComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,
