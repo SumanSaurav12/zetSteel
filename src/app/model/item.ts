@@ -12,7 +12,7 @@ export const items = [
   },
   {
     id: 'item2',
-    name: 'TMT Bar 8mm EQR',
+    name: 'TMT Bar 10mm EQR',
     metadata: {
       "grade": "EQR",
       "size": "8mm"
@@ -23,7 +23,7 @@ export const items = [
   },
   {
     id: 'item3',
-    name: 'TMT Bar pipes 8mm EQR',
+    name: 'TMT Bar pipes 12mm EQR',
     metadata: {
       "grade": "EQR",
       "size": "8mm"
@@ -34,7 +34,7 @@ export const items = [
   },
   {
     id: 'item4',
-    name: 'SAIL TMT EQR 8mm EQR',
+    name: 'SAIL TMT EQR 14mm EQR',
     metadata: {
       "grade": "HCR",
       "size": "8mm"
@@ -45,7 +45,7 @@ export const items = [
   },
   {
     id: 'item5',
-    name: 'SAIL TMT HCR 8mm EQR',
+    name: 'SAIL TMT HCR 16mm EQR',
     metadata: {
       "grade": "HCR",
       "size": "8mm"

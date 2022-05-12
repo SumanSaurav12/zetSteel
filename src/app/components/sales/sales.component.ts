@@ -71,7 +71,7 @@ export class SalesComponent implements OnInit {
           if (productSupplier && tansportSupplier) {
             const quantity = +tansportSupplier.quantity;
             const supplierPrice = +productSupplier.productPrice;
-            const totalSupplierPrice = +quantity * supplierPrice;
+            const totalSupplierPrice = quantity * supplierPrice;
             const transportPrice = +tansportSupplier.transportPrice;
 
 
@@ -201,7 +201,7 @@ export class SalesComponent implements OnInit {
   }
 
   approveAllQuotations() {
-    this.http.setFinalQuotationList(this.enquiryListData);
+    this.http.setFinalQuotationList(this.quotationListData);
   }
 
 }
